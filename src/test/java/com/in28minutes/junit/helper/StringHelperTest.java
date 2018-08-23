@@ -37,6 +37,7 @@ class StringHelperTest {
   }
 
 
+  //test method MUST be public and void
   @Test
   public void testTruncateAInFirst2Positions_aInFirst2Positions() {
     assertEquals("CD", sh1.truncateAInFirst2Positions("AACD"));
@@ -54,6 +55,8 @@ class StringHelperTest {
 
   @Test
   public void testAreFirstAndLastTwoCharactersTheSame_NotSame() {
+
+    //relying on static import: import static org.junit.jupiter.api.Assertions.*;
     assertFalse(sh.areFirstAndLastTwoCharactersTheSame("ABCD"));
   }
 

@@ -1,0 +1,4 @@
+com/in28minutes/junit/suites/HelperSuite.class
+com/in28minutes/junit/helper/StringHelperTest.class
+com/in28minutes/junit/helper/ArraysCompareTest.class
+com/in28minutes/junit/helper/TestParameterized.class
