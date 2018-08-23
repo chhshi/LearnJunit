@@ -25,6 +25,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
+import org.mockito.ArgumentMatcher;
 import org.mockito.BDDMockito;
 import org.mockito.Matchers;
 import org.mockito.Mock;
@@ -35,6 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.argThat;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
@@ -68,7 +70,7 @@ public class MockitoTest {
 
     //Mockito.when set a return value when method call happens
     List<String> todos = Arrays.asList("Learn Spring MVC", "Learn Spring", "Learn to Dance");
-    when(todoServiceMock.retrieveTodos("dummyUser")).thenReturn(todos);
+    Mockito.when(todoServiceMock.retrieveTodos("dummyUser")).thenReturn(todos);
 
     TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoServiceMock);
     List<String> filteredTodo = todoBusinessImpl.retrieveTodosRelatedToSpring("dummyUser");
@@ -176,7 +178,7 @@ public class MockitoTest {
     todoBusinessImpl.deleteTodosNotRelatedToSpring("dummyUser");
 
     //Then: verify todoService.deleteTodo("Learn to Dance") is called
-    Mockito.verify(todoServiceMock).deleteTodo("Learn to Dance");  //org.mockito.Mockito.verify;
+    Mockito.verify(todoServiceMock).deleteTodo("Learn to Dance");  //没指明times就是一次
     verify(todoServiceMock, Mockito.times(1)).deleteTodo("Learn to Dance");
     verify(todoServiceMock, Mockito.atLeast(1)).deleteTodo("Learn to Dance");
     verify(todoServiceMock, Mockito.never()).deleteTodo("Learn Spring MVC");
@@ -242,6 +244,28 @@ public class MockitoTest {
     assertThat(marks, arrayWithSize(3));
     assertThat(marks, arrayContaining(1, 2, 3));
     assertThat(marks, arrayContainingInAnyOrder(3, 2, 1));
+  }
+
+
+  //Customed Matcher
+  @Test void testCustomedMatcher() {
+    class IsListOfTwoElements extends ArgumentMatcher<List> {
+      public boolean matches(Object list) {
+        return ((List) list).size() == 2;
+      }
+    }
+
+    List mockList = mock(List.class);
+
+    when(mockList.addAll(argThat(new IsListOfTwoElements()))).thenReturn(true);
+
+    mockList.addAll(Arrays.asList("one", "two"));
+
+    verify(mockList).addAll(argThat(new IsListOfTwoElements()));
+
+    //To keep it readable you may want to extract method, e.g:
+    verify(mockList).addAll(argThat(new IsListOfTwoElements()));
+    //becomes  // verify(mockList).addAll(listOfTwoElements());
   }
 
 }
