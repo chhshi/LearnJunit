@@ -1,3 +1,9 @@
+/Users/sch/Documents/gitrepo/LearnJUnit/src/test/java/com/in28minutes/junit/mokito/MockitoInject.java
+/Users/sch/Documents/gitrepo/LearnJUnit/src/test/java/com/in28minutes/junit/mokito/MockitoTest.java
+/Users/sch/Documents/gitrepo/LearnJUnit/src/test/java/com/in28minutes/junit/mokito/MockitoJunitRule.java
+/Users/sch/Documents/gitrepo/LearnJUnit/src/test/java/com/in28minutes/junit/mokito/PowerMockitoTest.java
+/Users/sch/Documents/gitrepo/LearnJUnit/src/test/java/com/in28minutes/junit/mokito/MockitoSpy.java
+/Users/sch/Documents/gitrepo/LearnJUnit/src/test/java/com/in28minutes/data/stub/TodoServiceStub.java
 /Users/sch/Documents/gitrepo/LearnJUnit/src/test/java/com/in28minutes/junit/helper/StringHelperTest.java
 /Users/sch/Documents/gitrepo/LearnJUnit/src/test/java/com/in28minutes/junit/suites/HelperSuite.java
 /Users/sch/Documents/gitrepo/LearnJUnit/src/test/java/com/in28minutes/junit/helper/TestParameterized.java

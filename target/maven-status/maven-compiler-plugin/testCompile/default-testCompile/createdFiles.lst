@@ -1,4 +1,11 @@
 com/in28minutes/junit/suites/HelperSuite.class
-com/in28minutes/junit/helper/StringHelperTest.class
+com/in28minutes/junit/mokito/MockitoSpy.class
 com/in28minutes/junit/helper/ArraysCompareTest.class
+com/in28minutes/junit/mokito/MockitoInject.class
+com/in28minutes/junit/mokito/MockitoTest$1IsListOfTwoElements.class
+com/in28minutes/junit/mokito/PowerMockitoTest.class
+com/in28minutes/junit/helper/StringHelperTest.class
+com/in28minutes/data/stub/TodoServiceStub.class
+com/in28minutes/junit/mokito/MockitoTest.class
+com/in28minutes/junit/mokito/MockitoJunitRule.class
 com/in28minutes/junit/helper/TestParameterized.class
